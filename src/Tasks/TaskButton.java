@@ -1,3 +1,5 @@
+package Tasks;
+
 import javax.swing.*;
 
 public abstract class TaskButton extends Task {
