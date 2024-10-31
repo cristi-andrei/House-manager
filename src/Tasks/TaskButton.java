@@ -29,7 +29,7 @@ public abstract class TaskButton {
     }
 
     public static void removeTask() {
-        // Verifică dacă există task-uri de șters
+
         if (TasksVector.tasks.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Nu există task-uri de șters!", "Eroare", JOptionPane.ERROR_MESSAGE);
             return;
@@ -40,10 +40,10 @@ public abstract class TaskButton {
             taskNames[i] = TasksVector.tasks.get(i).getName();
         }
 
-        // Afișează dialogul pentru selectarea task-ului
+
         String selectedTask = (String) JOptionPane.showInputDialog(null, "Selectați task-ul de șters:", "Ștergere task", JOptionPane.QUESTION_MESSAGE, null, taskNames, taskNames[0]);
 
-        // Dacă s-a selectat un task, șterge-l din ambele liste
+
         if (selectedTask != null) {
             int indexToRemove = -1;
             for (int i = 0; i < TasksVector.tasks.size(); i++) {
