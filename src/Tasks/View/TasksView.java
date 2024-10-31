@@ -6,6 +6,7 @@ import Tasks.TaskJTF;
 import Tasks.TasksVector;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
@@ -29,19 +30,33 @@ public abstract class TasksView implements ActionListener {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         frame.setTitle("View");
-        frame.setSize(175, 200);
+        frame.setSize(400, 300);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         JPanel contentPane = new JPanel();
         contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
-        JButton button = new JButton("   Add task     ");
+        JButton button = new JButton("    Add task   ");
         JButton button2 = new JButton("Remove task");
-        JButton button3 = new JButton("   Edit task     ");
-        JButton button4 = new JButton("  View task    ");
+        JButton button3 = new JButton("   Edit task    ");
+        JButton button4 = new JButton("   View task   ");
+
+        Dimension buttonSize = new Dimension(300, 75);
+        Font buttonFont = new Font("Arial", Font.BOLD, 30);
+        button.setFont(buttonFont);
+        button2.setFont(buttonFont);
+        button3.setFont(buttonFont);
+        button4.setFont(buttonFont);
+
+        button.setPreferredSize(buttonSize);
+        button2.setPreferredSize(buttonSize);
+        button3.setPreferredSize(buttonSize);
+        button4.setPreferredSize(buttonSize);
+
         contentPane.add(button);
         contentPane.add(button2);
         contentPane.add(button3);
         contentPane.add(button4);
+
         button.setAlignmentX(JButton.CENTER_ALIGNMENT);
         button2.setAlignmentX(JButton.CENTER_ALIGNMENT);
         button3.setAlignmentX(JButton.CENTER_ALIGNMENT);
