@@ -6,8 +6,8 @@ public abstract class TaskButton extends Task {
     public static void addTask(){
         JTextField name = new JTextField();
         JTextField deadline = new JTextField();
-        TaskJTF.taskjtf.add()
-        TasksVector.tasks.add();
+        //TaskJTF.taskjtf.add()
+        //TasksVector.tasks.add();
         Object[] addTask = {
 
         };

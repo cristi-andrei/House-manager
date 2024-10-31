@@ -32,6 +32,6 @@ public class Task {
             this.name = name;
             this.deadline = deadline;
         }
-        public static Vector<TaskJTF> taskjtf = new Vector<>();
+        //public static Vector<TaskJTF> taskjtf = new Vector<>();
     }
 }
