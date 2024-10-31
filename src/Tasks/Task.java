@@ -7,6 +7,11 @@ public class Task {
     private String name;
     private String deadline;
 
+    public Task(String name, String deadline) {
+        this.name = name;
+        this.deadline = deadline;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,15 +28,5 @@ public class Task {
         this.deadline = deadline;
     }
 
-    public class TaskJTF
-    {
-        public JTextField name;
-        public JTextField deadline;
-        public TaskJTF(JTextField name, JTextField deadline)
-        {
-            this.name = name;
-            this.deadline = deadline;
-        }
-        public static Vector<TaskJTF> taskjtf = new Vector<>();
-    }
+
 }
