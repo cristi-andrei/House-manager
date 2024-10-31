@@ -31,7 +31,7 @@ public abstract class TaskButton {
     public static void removeTask() {
 
         if (TasksVector.tasks.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Nu există task-uri de șters!", "Eroare", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Nu exista task-uri de sters!", "Eroare", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -41,7 +41,7 @@ public abstract class TaskButton {
         }
 
 
-        String selectedTask = (String) JOptionPane.showInputDialog(null, "Selectați task-ul de șters:", "Ștergere task", JOptionPane.QUESTION_MESSAGE, null, taskNames, taskNames[0]);
+        String selectedTask = (String) JOptionPane.showInputDialog(null, "Selectati task-ul de sters:", "Stergere task", JOptionPane.QUESTION_MESSAGE, null, taskNames, taskNames[0]);
 
 
         if (selectedTask != null) {
@@ -56,7 +56,7 @@ public abstract class TaskButton {
             if (indexToRemove != -1) {
                 TasksVector.tasks.remove(indexToRemove);
                 TaskJTF.taskjtf.remove(indexToRemove);
-                JOptionPane.showMessageDialog(null, "Task-ul a fost șters cu succes!", "Ștergere reușită", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Task-ul a fost sters cu succes!", "Stergere reusita", JOptionPane.INFORMATION_MESSAGE);
             }
         }
     }
