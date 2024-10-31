@@ -29,12 +29,21 @@ public abstract class TasksView implements ActionListener {
         button3.setAlignmentX(JButton.CENTER_ALIGNMENT);
         button4.setAlignmentX(JButton.CENTER_ALIGNMENT);
         frame.setContentPane(contentPane);
+
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 TaskButton.addTask();
             }
         });
+
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TaskButton.removeTask();
+            }
+        });
+
 
     }
 }
