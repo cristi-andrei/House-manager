@@ -31,6 +31,7 @@ public class RoomOverviewUI extends JFrame {
         JTable itemsTable = new JTable();
         DefaultTableModel tableModel = new DefaultTableModel(new String[]{"Nume", "Descriere", "Cantitate", "Etichetă", "Locație"}, 0);
         itemsTable.setModel(tableModel);
+        itemsTable.setFillsViewportHeight(true);
         itemsTable.setAutoCreateRowSorter(true); // Enable sorting
 
         // Adaugare iteme dupa locatie
