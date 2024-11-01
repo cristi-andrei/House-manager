@@ -1,5 +1,6 @@
 package Tasks.View;
 
+import EcranPornire.styleButton;
 import Tasks.Task;
 import Tasks.TaskButton;
 import Tasks.TaskJTF;
@@ -39,6 +40,11 @@ public abstract class TasksView implements ActionListener {
         JButton button2 = new JButton("Remove task");
         JButton button3 = new JButton("   Edit task    ");
         JButton button4 = new JButton("   View task   ");
+
+        styleButton.styleButton(button);
+        styleButton.styleButton(button2);
+        styleButton.styleButton(button3);
+        styleButton.styleButton(button4);
 
         Dimension buttonSize = new Dimension(300, 75);
         Font buttonFont = new Font("Arial", Font.BOLD, 30);

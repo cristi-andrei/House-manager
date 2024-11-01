@@ -1,6 +1,7 @@
 package Tasks;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class TaskButton {
     public static void addTask(){
@@ -116,10 +117,11 @@ public abstract class TaskButton {
             JOptionPane.showMessageDialog(null, "Nu exista task-uri de vizionat!", "Eroare", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        Font textFont = new Font("Arial", Font.BOLD, 30);
         JFrame frameview = new JFrame();
         frameview.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameview.setTitle("View");
-        frameview.setSize(120, 150);
+        frameview.setSize(400, 600);
         frameview.setLocationRelativeTo(null);
         frameview.setVisible(true);
         JPanel contentPane = new JPanel();
@@ -129,6 +131,7 @@ public abstract class TaskButton {
         for (int i = 0; i < TasksVector.tasks.size(); i++) {
             tasksText.append("Nume: ").append(TasksVector.tasks.get(i).getName()).append("\nDeadline: ").append(TasksVector.tasks.get(i).getDeadline()).append("\n\n");
         }
+        textPane.setFont(textFont);
         textPane.setText(tasksText.toString());
         contentPane.add(textPane);
         frameview.setContentPane(contentPane);

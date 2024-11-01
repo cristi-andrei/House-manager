@@ -1,13 +1,10 @@
 import EcranPornire.AppInitializer;
 
-public static void main(String[] args){
-    //TasksView.GUI();
+public class Main {
+    public static void main(String[] args) {
+        String folderPath = "C:\\Users\\crist\\Documents\\GitHub\\House-manager"; // Specify your folder path here
 
-
-    //String folderPath = "C:\\Users\\vladm\\OneDrive\\Desktop\\folder proiect"; // Specify your folder path here
-    String folderPath = "C:\\Users\\vladm\\OneDrive\\Desktop\\facultateig\\OOP\\proiect 3\\House-manager\\src\\testItemFolder"; // Specify your folder path here
-
-    AppInitializer appInitializer = new AppInitializer(folderPath);
-    appInitializer.launchUI();
-
+        AppInitializer appInitializer = new AppInitializer(folderPath);
+        appInitializer.launchUI();
+    }
 }
