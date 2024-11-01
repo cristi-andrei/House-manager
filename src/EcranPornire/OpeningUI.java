@@ -1,4 +1,3 @@
-
 package EcranPornire;
 
 import Items.UI.ItemManagerUI;
@@ -13,6 +12,8 @@ public class OpeningUI extends JFrame {
 
     public OpeningUI(String folderPath) {
         this.appInitializer = new AppInitializer(folderPath);
+        //ImageIcon test = new ImageIcon("C:\\Users\\vladm\\OneDrive\\Desktop\\efc2a80b7f03e79e885b56d97d4757b1.jpg");
+        //ImageIcon bucatarieImage = new ImageIcon("C:\\Users\\vladm\\OneDrive\\Desktop\\facultateig\\OOP\\poze proiect 3\\bucatarie.jpg");
 
         FlatLightLaf.setup();
 
@@ -22,25 +23,67 @@ public class OpeningUI extends JFrame {
         setLocationRelativeTo(null); // Center the window
         setLayout(new BorderLayout(10, 10));
 
-        JPanel roomPanel = new JPanel(new GridLayout(2, 2, 20, 20));
+        JPanel roomPanel = new JPanel(new GridBagLayout());
         roomPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
+        GridBagConstraints gbc = new GridBagConstraints();
+
+        JLabel welcomeLabel = new JLabel("Bine a-ti venit");
+        welcomeLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        welcomeLabel.setAlignmentX(CENTER_ALIGNMENT);  // Center the text
+        welcomeLabel.setForeground(Color.DARK_GRAY);
 
         JButton kitchenButton = createRoomButton("Bucătărie");
-        JButton bedroomButton = createRoomButton("Dormitor");
-        JButton storageButton = createRoomButton("Depozit");
         JButton bathroomButton = createRoomButton("Baie");
+        JButton storageButton = createRoomButton("Depozit");
+        JButton bedroomButton = createRoomButton("Dormitor");
 
-        roomPanel.add(kitchenButton);
-        roomPanel.add(bedroomButton);
-        roomPanel.add(storageButton);
-        roomPanel.add(bathroomButton);
+        // Bucătărie
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;  // Full width of 1
+        gbc.gridheight = 2; // Height spans 2 rows
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weightx = 0.4;  // Assign some weight for resizing
+        gbc.weighty = 1.0;  // Full height for Bucătărie
+        gbc.insets = new Insets(5, 5, 5, 5); // Add spacing around
+        roomPanel.add(kitchenButton, gbc);
+
+        // Dormitor
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.gridwidth = 1;
+        gbc.gridheight = 1;
+        gbc.weightx = 0.6;  // Width of Dormitor
+        gbc.weighty = 0.5;  // Same height as Bucătărie
+        gbc.insets = new Insets(5, 5, 5, 5);
+        roomPanel.add(bedroomButton, gbc);
+
+        // Baie
+        gbc.gridx = 1; // Set to the middle column
+        gbc.gridy = 0; // First row
+        gbc.gridwidth = 1; // Occupy 1 column
+        gbc.gridheight = 1; // Height is 1 row
+        gbc.weightx = 0.2;  //width
+        gbc.weighty = 0.125; // height
+        gbc.insets = new Insets(5, 5, 5, 5); // Add spacing
+        roomPanel.add(bathroomButton, gbc);
+
+        // Depozit
+        gbc.gridx = 1; //
+        gbc.gridy = 1; // Second row
+        gbc.gridwidth = 1; // Occupy 1 column
+        gbc.gridheight = 1; // Same height
+        gbc.weightx = 0.2;  // width
+        gbc.weighty = 0.25; // height
+        gbc.insets = new Insets(5, 5, 5, 5); // Add spacing=
+        roomPanel.add(storageButton, gbc);
 
         JPanel navPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 20));
         JButton itemsButton = new JButton("Vezi Toate Obiectele");
         JButton tasksButton = new JButton("Gestionează Sarcinile");
 
-        styleButton.styleButton(itemsButton);
-        styleButton.styleButton(tasksButton);
+        ButtonStyler.styleTheButton(itemsButton);
+        ButtonStyler.styleTheButton(tasksButton);
 
         itemsButton.addActionListener(e -> openItemManagerUI());
         tasksButton.addActionListener(e -> openTasksUI());
@@ -52,21 +95,19 @@ public class OpeningUI extends JFrame {
         add(navPanel, BorderLayout.SOUTH);
     }
 
+    /*private JButton createRoomButton(String roomName, ImageIcon image) {
+        JButton button = new JButton(roomName, image);
+        ButtonStyler.styleTheButton(button);
+        button.addActionListener(e -> openRoomOverviewUI(roomName));
+        return button;
+    }*/
+
     private JButton createRoomButton(String roomName) {
         JButton button = new JButton(roomName);
-        styleButton.styleButton(button);
+        ButtonStyler.styleTheButton(button);
         button.addActionListener(e -> openRoomOverviewUI(roomName));
         return button;
     }
-
-/*    private void styleButton(JButton button) {
-        button.setBackground(Color.decode("#1b4d1d")); // Green color
-        button.setForeground(Color.WHITE);
-        button.setFont(new Font("Arial", Font.BOLD, 12));
-        button.setFocusPainted(false);
-        button.setPreferredSize(new Dimension(120, 60));
-        button.setCursor(new Cursor(Cursor.HAND_CURSOR));
-    }*/
 
     private void openItemManagerUI() {
         new ItemManagerUI(appInitializer.getFolderPath()).setVisible(true);
