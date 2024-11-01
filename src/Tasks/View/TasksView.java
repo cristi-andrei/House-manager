@@ -20,10 +20,11 @@ public abstract class TasksView implements ActionListener {
         String name;
         while ((name = reader.readLine()) != null) {
             String deadline = reader.readLine();
-            if (deadline != null) {
+            String tag = reader.readLine();
+            if (deadline != null && tag != null) {
                 TaskJTF.counttask++;
-                TasksVector.tasks.add(TaskJTF.counttask,new Task(name, deadline));
-                TaskJTF.taskjtf.add(TaskJTF.counttask,new TaskJTF(null,null));
+                TasksVector.tasks.add(TaskJTF.counttask,new Task(name, deadline,tag));
+                TaskJTF.taskjtf.add(TaskJTF.counttask,new TaskJTF(null,null,null));
             }
         }
         reader.close();

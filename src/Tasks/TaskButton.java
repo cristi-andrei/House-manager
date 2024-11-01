@@ -7,17 +7,18 @@ public abstract class TaskButton {
     public static void addTask(){
         JTextField name = new JTextField();
         JTextField deadline = new JTextField();
-
+        JTextField tag= new JTextField();
         Object[] addTask = {
             "Nume:", name,
-            "Deadline:", deadline
+            "Deadline:", deadline,
+                "Tag:", tag
         };
         int option=JOptionPane.showConfirmDialog(null, addTask,"Adaugare task",JOptionPane.OK_CANCEL_OPTION);
         if(option==JOptionPane.OK_OPTION){
-            if(!name.getText().isEmpty() && !deadline.getText().isEmpty()){
+            if(!name.getText().isEmpty() && !deadline.getText().isEmpty() && !tag.getText().isEmpty()){
                 TaskJTF.counttask++;
-                TaskJTF.taskjtf.add(TaskJTF.counttask,new TaskJTF(name,deadline));
-                TasksVector.tasks.add(TaskJTF.counttask,new Task(TaskJTF.taskjtf.elementAt(TaskJTF.counttask).name.getText(),TaskJTF.taskjtf.elementAt(TaskJTF.counttask).deadline.getText()));
+                TaskJTF.taskjtf.add(TaskJTF.counttask,new TaskJTF(name,deadline, tag));
+                TasksVector.tasks.add(TaskJTF.counttask,new Task(TaskJTF.taskjtf.elementAt(TaskJTF.counttask).name.getText(),TaskJTF.taskjtf.elementAt(TaskJTF.counttask).deadline.getText(),TaskJTF.taskjtf.elementAt(TaskJTF.counttask).tag.getText()));
             }
             else {
                 JOptionPane.showMessageDialog(null, "Eroare! Ati lasat campurile goale","Eroare",JOptionPane.ERROR_MESSAGE);
@@ -86,7 +87,7 @@ public abstract class TaskButton {
                 JTextField deadline = new JTextField();
                 Object[] editTask = {
                         "Nume:",name,
-                        "Deadline:",deadline
+                        "Deadline:",deadline,
                 };
 
                 int option=JOptionPane.showConfirmDialog(null,editTask,"Modificare task",JOptionPane.OK_CANCEL_OPTION);
@@ -129,7 +130,7 @@ public abstract class TaskButton {
         JTextPane textPane = new JTextPane();
         StringBuilder tasksText = new StringBuilder();
         for (int i = 0; i < TasksVector.tasks.size(); i++) {
-            tasksText.append("Nume: ").append(TasksVector.tasks.get(i).getName()).append("\nDeadline: ").append(TasksVector.tasks.get(i).getDeadline()).append("\n\n");
+            tasksText.append("Nume: ").append(TasksVector.tasks.get(i).getName()).append("\nDeadline: ").append(TasksVector.tasks.get(i).getDeadline()).append("\nTag:").append(TasksVector.tasks.get(i).getTag()).append("\n\n");
         }
         textPane.setFont(textFont);
         textPane.setText(tasksText.toString());
