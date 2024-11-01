@@ -1,50 +1,3 @@
-/*
-package Items;
-
-import java.io.*;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.List;
-
-public class ItemManager {
-    private List<Item> items;
-    private final File file;
-
-    public ItemManager(String folderPath) {
-        items = new ArrayList<>();
-        file = new File(folderPath, "items.dat");
-        loadItems(); // Automatically load items from file at startup
-    }
-
-    public void addItem(Item item) {
-        items.add(item);
-        saveItems();
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    private void saveItems() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(file.toPath()))) {
-            oos.writeObject(items);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    private void loadItems() {
-        if (file.exists()) {
-            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
-                items = (List<Item>) ois.readObject();
-            } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
-*/
 package Items;
 
 import java.io.*;
@@ -56,14 +9,14 @@ public class ItemManager {
     private String filePath;
 
     public ItemManager(String folderPath) {
-        this.filePath = folderPath + File.separator + "items.dat"; // Specify the file name
+        this.filePath = folderPath + File.separator + "items.dat";
         this.items = new ArrayList<>();
-        loadItems(); // Load existing items from the file
+        loadItems();
     }
 
     public void addItem(Item item) {
         items.add(item);
-        saveItems(); // Save items after adding a new one
+        saveItems();
     }
 
     public void saveItems() {

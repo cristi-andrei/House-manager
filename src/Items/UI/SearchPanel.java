@@ -12,7 +12,7 @@ public class SearchPanel extends JPanel {
         setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         JTextField searchField = new JTextField(15);
-        add(new JLabel("Search:"));
+        add(new JLabel("Cauta:"));
         add(searchField);
 
         searchField.addKeyListener(new KeyAdapter() {
